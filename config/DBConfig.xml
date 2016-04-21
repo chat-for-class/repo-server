@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MYSQLConfig ip="127.0.0.1" port="3306" databaseName="save" id="root" password="root" />
+<MYSQLConfig ip="127.0.0.1" port="3306" databaseName="javaProject" id="root" password="k1234" />
