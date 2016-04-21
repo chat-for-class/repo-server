@@ -38,22 +38,8 @@ public class MYSQLConnector {
 	public boolean loginCheck(String id, String pw) throws SQLException{
 		boolean flag = false;
 		
-		pstmt = null;
-		String sql = "select id from Clients where id = ?AND pw=?";
-		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, id);
-		pstmt.setString(2, pw);
-		ResultSet rs = pstmt.executeQuery();
-		
-		if(rs.next()==false){// 존재하지 않으면 
-			flag = false;
-		}else{
-			flag = true;
-		}
-		
-		/*
 		try {
-			String sql = "select pw.id, pw.password from Clients pw, (select * from Clients where id = ?) id where pw.password = ? and id.id = pw.id";
+			String sql = "select pw.id, pw.password from infomation pw, (select * from infomation where id = ?) id where pw.password = ? and id.id = pw.id";
 			pstmt = conn.prepareStatement(sql);
 		
 			pstmt.setString(1, id);
@@ -76,7 +62,7 @@ public class MYSQLConnector {
 			if(pstmt != null) pstmt.close();
 			pstmt = null;
 		}
-		*/
+		
 		return flag;
 	}
 	
@@ -84,7 +70,7 @@ public class MYSQLConnector {
 		boolean flag = false;
 		
 		try {
-			String sql = "insert into Clients values (?, ?, ?)";
+			String sql = "insert into infomation values (?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, id);
@@ -109,7 +95,7 @@ public class MYSQLConnector {
 		boolean flag = false;
 		
 		try {
-			String sql = "select * from Clients where id=?";
+			String sql = "select * from infomation where id=?";
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1, id);
